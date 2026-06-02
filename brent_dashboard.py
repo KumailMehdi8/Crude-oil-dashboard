@@ -63,7 +63,12 @@ def load_data(path="brent-daily.csv"):
     return df
 
 
-df = load_data("/mnt/user-data/uploads/brent-daily.csv")
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CSV_PATH = os.path.join(BASE_DIR, "brent-daily.csv")
+
+df = load_data(CSV_PATH)
 
 # Useful constants for filter widgets
 MIN_DATE   = df["Date"].min().date()
